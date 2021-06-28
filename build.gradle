@@ -29,6 +29,9 @@ dependencies {
     implementation 'com.h2database:h2'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
+    // MyBatis 의존성 추가
+    implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
 }
 
 test {
