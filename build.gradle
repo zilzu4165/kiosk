@@ -32,6 +32,10 @@ dependencies {
     // MyBatis 의존성 추가
     implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+
+    // junit 의존성 추가
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
+
 }
 
 test {
