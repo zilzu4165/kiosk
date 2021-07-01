@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zilzu.kiosk.owner.OwnerMapper">
+
+
+<!--    OWNER 등록    -->
+    <insert id="addOwner" useGeneratedKeys="true" keyProperty="ownerId"
+            parameterType="me.zilzu.kiosk.owner.OwnerSaveRequest">
+        INSERT INTO
+            owner(name,email,phone_number,business_number,id,password)
+        VALUES
+            (#{name}, #{email},#{phoneNumber},#{businessNumber},#{id},#{password})
+    </insert>
+</mapper>
