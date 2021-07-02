@@ -1,7 +1,6 @@
 package me.zilzu.kiosk.owner;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OwnerController {
 
-    @Autowired
     private final OwnerService ownerService;
 
     public OwnerController(OwnerService ownerService) {
@@ -20,7 +18,7 @@ public class OwnerController {
     @PostMapping(value = "/owner")
     public void save(@RequestBody OwnerSaveRequest ownerSaveRequest) {
 
-        ownerService.addOwner(ownerSaveRequest);
+        ownerService.addOwner(ownerSaveRequest.toOwner());
 
         log.info("ownerAdd = {}", ownerSaveRequest);
     }

@@ -15,4 +15,15 @@ public class OwnerSaveRequest {
     private String businessNumber;
     private String id;
     private String password;
+
+    public Owner toOwner() {
+        return new Owner(
+                ownerId,
+                name,
+                email,
+                phoneNumber,
+                businessNumber,
+                id,
+                password);
+    }
 }
