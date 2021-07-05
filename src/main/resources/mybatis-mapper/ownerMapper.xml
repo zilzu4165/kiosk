@@ -4,12 +4,17 @@
 <mapper namespace="me.zilzu.kiosk.owner.OwnerMapper">
 
 
-<!--    OWNER 등록    -->
+    <!--    OWNER 등록    -->
     <insert id="addOwner" useGeneratedKeys="true" keyProperty="ownerId"
             parameterType="me.zilzu.kiosk.owner.OwnerSaveRequest">
         INSERT INTO
-            owner(name,email,phone_number,business_number,id,password)
+        owner(name,email,phone_number,business_number,id,password)
         VALUES
-            (#{name}, #{email},#{phoneNumber},#{businessNumber},#{id},#{password})
+        (#{name}, #{email},#{phoneNumber},#{businessNumber},#{id},#{password})
     </insert>
+
+    <!--    OWNER 조회    -->
+    <select id="getOwner" parameterType="string" resultType="me.zilzu.kiosk.owner.Owner">
+        SELECT * FROM owner WHERE id=#{id}
+    </select>
 </mapper>

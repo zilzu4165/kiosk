@@ -1,10 +1,13 @@
 package me.zilzu.kiosk.owner;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Mapper
 public interface OwnerMapper {
 
-    void addOwner(Owner Owner);
+    void addOwner(OwnerSaveRequest ownerSaveRequest);
+
+    List<Owner> getOwner(String id);
 }

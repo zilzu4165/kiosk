@@ -1,9 +1,9 @@
 package me.zilzu.kiosk.owner;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -18,8 +18,13 @@ public class OwnerController {
     @PostMapping(value = "/owner")
     public void save(@RequestBody OwnerSaveRequest ownerSaveRequest) {
 
-        ownerService.addOwner(ownerSaveRequest.toOwner());
+        ownerService.addOwner(ownerSaveRequest);
 
         log.info("ownerAdd = {}", ownerSaveRequest);
+    }
+
+    @GetMapping(value = "/owner/{id}")
+    public List<Owner> getOwner(@PathVariable String id) {
+        return ownerService.getOwner(id);
     }
 }
