@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zilzu.kiosk.order.OrderMapper">
+
+
+    <!--    OWNER 등록    -->
+    <insert id="doOrder" useGeneratedKeys="true" keyProperty="orderId"
+            parameterType="me.zilzu.kiosk.order.OrderSaveRequest">
+        INSERT INTO
+        "ORDER"(total_price,take_out,payment_method,user_id,store_id)
+        VALUES
+        (#{totalPrice},#{takeOut},#{paymentMethod},#{userId},#{storeId})
+    </insert>
+
+    <!--    OWNER 조회    -->
+    <select id="getOrder" resultType="me.zilzu.kiosk.order.Order">
+        SELECT * FROM order WHERE order_id=#{orderId}
+    </select>
+</mapper>

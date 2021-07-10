@@ -1,5 +1,5 @@
 CREATE TABLE `menu` (
-                        `menu_id` bigint NOT NULL,
+                        `menu_id` bigint NOT NULL AUTO_INCREMENT,
                         `type` varchar(45) NOT NULL,
                         `name` varchar(45) NOT NULL,
                         `price` int NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `user` (
 CREATE TABLE `order` (
                          `order_id` bigint NOT NULL AUTO_INCREMENT,
                          `total_price` int NOT NULL,
-                         `order_time` timestamp NOT NULL,
+                         `order_time` timestamp NOT NULL default now(),
                          `take_out` char(1) NOT NULL COMMENT 'y/n',
                          `payment_method` varchar(45) NOT NULL COMMENT 'CARD / CASH',
                          `user_id` bigint NOT NULL,
@@ -71,6 +71,11 @@ CREATE TABLE `order_menu` (
                               CONSTRAINT `fk_order_menu_order_id` FOREIGN KEY (`order_id`) REFERENCES `order` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `order_test` (
+    `order_code` bigint NOT NULL AUTO_INCREMENT,
+    `order_time` timestamp NOT NULL default NOW()
+)
 
 
 
