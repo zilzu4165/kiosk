@@ -17,7 +17,7 @@ public class MenuService {
         menuMapper.addMenu(menuSaveRequest);
     }
 
-    public List<Menu> getMenu(Long menuId) {
+    public Menu getMenu(Long menuId) {
         return menuMapper.getMenu(menuId);
     }
 }

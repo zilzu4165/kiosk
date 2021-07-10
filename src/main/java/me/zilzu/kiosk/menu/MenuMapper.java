@@ -9,5 +9,5 @@ public interface MenuMapper {
 
     void addMenu(MenuSaveRequest menuSaveRequest);
 
-    List<Menu> getMenu(Long menuId);
+    Menu getMenu(Long menuId);
 }
