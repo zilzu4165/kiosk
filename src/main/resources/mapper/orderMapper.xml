@@ -15,6 +15,6 @@
 
     <!--    OWNER 조회    -->
     <select id="getOrder" resultType="me.zilzu.kiosk.order.Order">
-        SELECT * FROM order WHERE order_id=#{orderId}
+        SELECT * FROM "ORDER" WHERE order_id=#{orderId}
     </select>
 </mapper>
