@@ -6,7 +6,7 @@
 
     <!--    OWNER 등록    -->
     <insert id="doOrder" useGeneratedKeys="true" keyProperty="orderId"
-            parameterType="me.zilzu.kiosk.order.OrderSaveRequest">
+            parameterType="me.zilzu.kiosk.order.Order">
         INSERT INTO
         "ORDER"(total_price,take_out,payment_method,user_id,store_id)
         VALUES
