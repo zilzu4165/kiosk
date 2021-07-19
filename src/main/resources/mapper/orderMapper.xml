@@ -4,17 +4,17 @@
 <mapper namespace="me.zilzu.kiosk.order.OrderMapper">
 
 
-    <!--    OWNER 등록    -->
+    <!--    ORDER 등록    -->
     <insert id="doOrder" useGeneratedKeys="true" keyProperty="orderId"
-            parameterType="me.zilzu.kiosk.order.OrderSaveRequest">
+            parameterType="me.zilzu.kiosk.order.Order">
         INSERT INTO
         "ORDER"(total_price,take_out,payment_method,user_id,store_id)
         VALUES
         (#{totalPrice},#{takeOut},#{paymentMethod},#{userId},#{storeId})
     </insert>
 
-    <!--    OWNER 조회    -->
+    <!--    ORDER 조회    -->
     <select id="getOrder" resultType="me.zilzu.kiosk.order.Order">
-        SELECT * FROM order WHERE order_id=#{orderId}
+        SELECT * FROM "ORDER" WHERE order_id=#{orderId}
     </select>
 </mapper>
