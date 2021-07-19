@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zilzu.kiosk.user.UserMapper">
+
+
+    <!--    USER 등록    -->
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="userId"
+            parameterType="me.zilzu.kiosk.user.UserSaveRequest">
+        INSERT INTO
+        user(finger_print)
+        VALUES
+        (#{fingerPrint})
+    </insert>
+
+    <!--    USER 조회    -->
+    <select id="getUser" parameterType="long" resultType="me.zilzu.kiosk.user.User">
+        SELECT * FROM user WHERE user_id = #{userId}
+    </select>
+
+</mapper>
