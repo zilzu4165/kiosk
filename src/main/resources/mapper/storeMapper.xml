@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zilzu.kiosk.store.StoreMapper">
+
+
+    <!--    Store 등록    -->
+    <insert id="saveStore" useGeneratedKeys="true" keyProperty="storeId"
+            parameterType="me.zilzu.kiosk.store.Store">
+        INSERT INTO
+        store(store_name,location,tel,open_time,close_time,owner_id)
+        VALUES
+        (#{storeName}, #{location},#{tel},#{openTime},#{closeTime},#{ownerId})
+    </insert>
+
+    <!--    Store 조회    -->
+    <select id="getStore" parameterType="Long" resultType="me.zilzu.kiosk.store.Store">
+        SELECT * FROM store WHERE store_id=#{storeId}
+    </select>
+</mapper>
