@@ -1,38 +1,28 @@
 package me.zilzu.kiosk.store;
 
 import lombok.extern.slf4j.Slf4j;
-import me.zilzu.kiosk.model.Store;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
-@Slf4j
 @RestController
+@Slf4j
 public class StoreController {
 
-    @GetMapping(value = "/store")
-    public String read(@RequestParam List<Integer> id,
-                       @RequestParam String region) {
-        return id.toString() + " ," + region;
+    private final StoreService storeService;
+
+    public StoreController(StoreService storeService) {
+        this.storeService = storeService;
     }
 
     @PostMapping(value = "/store")
-    public String save(@RequestBody StoreSaveRequest storeSaveRequest) {
-        log.info("store = {}", storeSaveRequest);
-
-        return storeSaveRequest.toString();
+    public void saveStore(@RequestBody StoreSaveRequest storeSaveRequest) {
+        storeService.saveStore(storeSaveRequest);
+        log.info("saveStore = {}", storeSaveRequest);
     }
 
-    @PostMapping(value = "/store2", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String saveForForm(@ModelAttribute Store store) {
-        log.info("store= {}", store);
-        return store.toString();
-    }
-
-    @GetMapping(value = "/store/{id}")
-    public String mappingPath(@PathVariable Long id) {
-        log.info("mappingPath storeId= {}", id);
-        return "ok";
+    @GetMapping(value = "/store/{storeId}")
+    public Store getStore(@PathVariable Long storeId) {
+        return storeService.getStore(storeId);
     }
 }
+
+

@@ -25,7 +25,7 @@ CREATE TABLE `owner` (
 CREATE TABLE `store` (
                          `store_id` bigint NOT NULL AUTO_INCREMENT,
                          `store_name` varchar(45) NOT NULL,
-                         `menu` varchar(45) NOT NULL,
+--                          `menu` varchar(45) NOT NULL,
                          `location` varchar(45) NOT NULL,
                          `tel` varchar(45) NOT NULL,
                          `open_time` time NOT NULL,
