@@ -2,8 +2,6 @@ package me.zilzu.kiosk.menu;
 
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class MenuService {
 
