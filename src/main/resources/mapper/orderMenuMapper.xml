@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="me.zilzu.kiosk.ordermenu.OrderMenuMapper">
+
+
+    <!--    ORDERMENU 등록    -->
+    <insert id="receiveOrder" useGeneratedKeys="true" keyProperty="orderMenuId" parameterType="me.zilzu.kiosk.menu.MenuSaveRequest">
+        INSERT INTO
+        order_menu(quantity,price,order_id,menu_id)
+        VALUES
+        (#{quantity},#{price},#{orderId},#{menuId})
+    </insert>
+
+<!--        ORDERMENU 조회    -->
+    <select id="getOrderMenu" parameterType="long" resultType="me.zilzu.kiosk.ordermenu.OrderMenu">
+        SELECT * FROM order_menu WHERE order_menu_id=#{orderMenuId}
+    </select>
+</mapper>
