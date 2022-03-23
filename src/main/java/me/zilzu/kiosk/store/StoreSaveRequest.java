@@ -8,6 +8,7 @@ import lombok.ToString;
 @Setter
 @ToString
 public class StoreSaveRequest {
+    private final Long storeId;
     private Long id;
     private String storeName;
     private String location;
